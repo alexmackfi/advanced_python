@@ -21,12 +21,12 @@ def drow_image(path,name='mytable.tex'):
         tf.write(string)
     print(string)
 
-def start_document(name='table.tex'):
+def start_document(name='mytable.tex'):
     string = '\\documentclass{article}\n\\begin{document}'
     with open(name, 'w') as f:
         f.write(string)
 
-def finish_document(name='table.tex'):
+def finish_document(name='mytable.tex'):
     string = '\n\\end{document}'
     with open(name, 'a') as f:
         f.write(string)
