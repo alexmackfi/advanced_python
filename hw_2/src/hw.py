@@ -10,7 +10,7 @@ def drow_table(table_strings,name='mytable.tex'):
         string+=str(i[-1])+'\\'+'\\'+'\n'
         ind+=1
     string+='\\hline\n'+'\\end{tabular}\n\\end{table}'
-    with open(name, 'w') as tf:
+    with open(name, 'a') as tf:
         tf.write(string)
 
 
@@ -20,3 +20,13 @@ def drow_image(path,name='mytable.tex'):
     with open(name, 'a') as tf:
         tf.write(string)
     print(string)
+
+def start_document(name='table.tex'):
+    string = '\\documentclass{article}\n\\begin{document}'
+    with open(name, 'w') as f:
+        f.write(string)
+
+def finish_document(name='table.tex'):
+    string = '\n\\end{document}'
+    with open(name, 'a') as f:
+        f.write(string)
