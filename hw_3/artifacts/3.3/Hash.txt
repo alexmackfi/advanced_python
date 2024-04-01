@@ -1,0 +1,6 @@
+hash(a) = 18
+hash(b) = 4
+hash(c) = 18
+hash(b) = 4
+hash(ab) = 24
+hash(cd) = 24
