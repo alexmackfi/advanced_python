@@ -11,11 +11,11 @@ def fib(n):
     else:
         return 1
 
-def one_thread_fib(n):
-    start = time.time()
-    res = fib(n)
-    end = time.time()
-    print(f"synchronous run in {end - start} seconds")
+# def one_thread_fib(n):
+#     start = time.time()
+#     res = fib(n)
+#     end = time.time()
+#     print(f"synchronous run in {end - start} seconds")
 
 def many_threads_fib(n, numb_t):
     threads_list = []
@@ -39,3 +39,13 @@ def many_process_fib(n, numb_p):
         res = pool.map(fib, (n,))
     end = time.time()
     print(f"{numb_p} processes run in {end - start} seconds")
+
+
+if __name__ == "__main__":
+    start = time.time()
+    for i in range(10):
+        fib(34)
+    end = time.time()
+    print(f"10 synchronous run in {end - start} seconds")
+    many_threads_fib(34, 10)
+    many_process_fib(34, 10)
