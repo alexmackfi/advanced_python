@@ -1,8 +1,8 @@
 one_thread_fib(34)
-synchronous run in 4.15117335319519 seconds
+synchronous run in 2.965667724609375 seconds
 
 many_threads_fib(34, 10)
-10 threads run in 31.675658464431763 seconds
+10 threads run in 16.60294270515442 seconds
 
 many_process_fib(34, 10)
-10 processes run in 3.4475088119506836 seconds
+10 processes run in 1.6553857326507568 seconds
