@@ -23,8 +23,13 @@ def many_threads_fib(n, numb_t):
     for i in range(numb_t):
         t = Thread(name = "fibonacci", target=fib, args=(n, ))
         t.start()
-    while any(t.is_alive() for t in threading.enumerate() if t.name == 'fibonacci'):
-        pass
+        threads_list.append(t)
+
+    for t in threads_list:
+        t.join()
+
+    # while any(t.is_alive() for t in threading.enumerate() if t.name == 'fibonacci'):
+    #     pass
     end = time.time()
     print(f"{numb_t} threads run in {end - start} seconds")
 
