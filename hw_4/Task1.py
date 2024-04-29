@@ -1,7 +1,7 @@
 import threading
 from threading import Thread
 import time
-from multiprocessing import Pool, Queue, Pipe, Process
+from multiprocessing import Process
 import codecs
 from datetime import datetime
 
@@ -33,10 +33,19 @@ def many_threads_fib(n, numb_t):
     end = time.time()
     print(f"{numb_t} threads run in {end - start} seconds")
 
+
+
 def many_process_fib(n, numb_p):
     start = time.time()
-    with Pool(numb_p) as pool:
-        res = pool.map(fib, (n,))
+    processes = []
+    for i in range(numb_p):
+        p = Process(name = "fibonacci", target=fib, args=(n, ))
+        p.start()
+        processes.append(p)
+
+    for p in processes:
+        p.join()
+
     end = time.time()
     print(f"{numb_p} processes run in {end - start} seconds")
 
